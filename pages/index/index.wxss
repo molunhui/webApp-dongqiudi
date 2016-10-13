@@ -27,10 +27,10 @@
     top: 0;
 }
 .navigation {
-    position: fixed;
+    position: absolute;
     z-index: 10;
-    right: 10rpx;
-    top: 320rpx;
+    right: 20rpx;
+    bottom: 10rpx;
 }
 .navigation li {
     display: inline-block;

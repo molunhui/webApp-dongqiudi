@@ -1,16 +1,20 @@
 //index.js
 //获取应用实例
-var app = getApp()
+let app = getApp()
 
-var slider = require('../../api/slider.js');
+let slider = require('../../api/slider.js');
+
+let list = require('../../api/list');
+console.log(list);
 Page({
   data: {
     slider: slider.data.info,
-    indicatorDots: false,
-    autoplay: true,
+    indicatorDots: true,
+    autoplay: false,
     interval: 5000,
     duration: 1000,
-    curIndex: 0
+    curIndex: 0,
+    articleList: list.data.articleList
   },
   
   onLoad: function () {

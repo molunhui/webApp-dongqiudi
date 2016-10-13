@@ -2,7 +2,7 @@
     index.wxml
 -->
 <view class="container">
-    <swiper class="swiper clearfix" indicator-dots="{{ indicatorDots }}" autoplay="{{ autoplay }}" interval="{{ interval }}" duration="{{ duration }}" bindchange="navigatorChange">
+    <swiper class="swiper" indicator-dots="{{ indicatorDots }}" autoplay="{{ autoplay }}" interval="{{ interval }}" duration="{{ duration }}" bindchange="navigatorChange">
         <block wx:for="{{ slider }}">
             <swiper-item data-id="{{ item.id }}">
                 <navigator class="slider-link" url="../article/article?id={{ item.id }}">
@@ -20,4 +20,7 @@
             </bolck>
         </ul>
     </swiper>
+    <navigator wx:for="{{articleList}}" class="list-container" url="../../article/article?id={{item.id}}">
+        <image mode="aspectFit" src="{{item.image}}" class="cover"></image>
+    </navigator>
 </view>
