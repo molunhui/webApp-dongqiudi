@@ -1,0 +1,41 @@
+{
+    "pages": ["pages/index/index", "pages/live/live"],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#06b995",
+        "navigationBarTitleText": "懂球帝",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "color": "#858585",
+        "selectedColor": "#11cd6e",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "white",
+        "list": [{
+            "pagePath": "pages/index/index",
+            "iconPath": "images/icons/headlines.png",
+            "selectedIconPath": "images/icons/headlinesHL.png",
+            "text": "头条"
+        }, {
+            "pagePath": "pages/live/live",
+            "iconPath": "images/icons/whistle.png",
+            "selectedIconPath": "images/icons/whistleHL.png",
+            "text": "直播"
+        }, {
+            "pagePath": "pages/favorites/favorites",
+            "iconPath": "images/icons/heart.png",
+            "selectedIconPath": "images/icons/heartHL.png",
+            "text": "最爱"
+        }, {
+            "pagePath": "pages/quanzi/quanzi",
+            "iconPath": "images/icons/quanzi.png",
+            "selectedIconPath": "images/icons/quanziHL.png",
+            "text": "圈子"
+        }, {
+            "pagePath": "pages/data/data",
+            "iconPath": "images/icons/graphic.png",
+            "selectedIconPath": "images/icons/graphicHL.png",
+            "text": "数据"
+        }]
+    }
+}

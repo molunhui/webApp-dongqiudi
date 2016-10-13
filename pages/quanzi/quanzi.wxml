@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="textContainer">
+    <text class="textStyle">圈子...</text>
+  </view>
+</view>

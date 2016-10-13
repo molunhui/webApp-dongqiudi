@@ -1,0 +1,46 @@
+/**index.wxss**/
+
+.swiper {
+    position: relative;
+    width: 100%;
+    height: 360rpx;
+}
+.swiper-item {
+    position: relative;
+}
+.slide-image {
+    height: 100%;
+    width: 100%;
+}
+.img-txt {
+    position: absolute;
+    left: 10rpx;
+    bottom: 10rpx;
+    color: #fff;
+    font-size: 30rpx;
+}
+.slider-link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.navigation {
+    position: fixed;
+    z-index: 10;
+    right: 10rpx;
+    top: 320rpx;
+}
+.navigation li {
+    display: inline-block;
+    margin-left: 10rpx;
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 50%;
+    /*border: 1px solid #11cd6e;*/
+    background-color: #ccc;
+}
+.navigation li.cur {
+    background-color: #11cd6e;
+}

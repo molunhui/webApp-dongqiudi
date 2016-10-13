@@ -1,0 +1,23 @@
+<!--
+    index.wxml
+-->
+<view class="container">
+    <swiper class="swiper clearfix" indicator-dots="{{ indicatorDots }}" autoplay="{{ autoplay }}" interval="{{ interval }}" duration="{{ duration }}" bindchange="navigatorChange">
+        <block wx:for="{{ slider }}">
+            <swiper-item data-id="{{ item.id }}">
+                <navigator class="slider-link" url="../article/article?id={{ item.id }}">
+                </navigator>
+                <image src="{{ item.image }}" mode="aspectFill" class="slide-image"/>
+                <text class="img-txt">
+                    {{ item.text }}
+                </text>
+            </swiper-item>
+        </block>
+        <ul class="navigation">
+            <bolck wx:for="{{slider}}">
+                <li wx:if="{{index == curIndex}}" class="cur"></li>
+                <li wx:else="{{index}}"></li>
+            </bolck>
+        </ul>
+    </swiper>
+</view>
