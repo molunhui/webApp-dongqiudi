@@ -9,8 +9,8 @@ console.log(list);
 Page({
   data: {
     slider: slider.data.info,
-    indicatorDots: true,
-    autoplay: false,
+    indicatorDots: false,
+    autoplay: true,
     interval: 5000,
     duration: 1000,
     curIndex: 0,

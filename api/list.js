@@ -8,6 +8,8 @@ let data = {
             "communications": "260",
             "recommend": "1",
             "overhead": "1",
+            "exclusive": "1",
+            "leisure": "0"
         },
         {
             "id": "2",
@@ -17,6 +19,8 @@ let data = {
             "communications": "12345",
             "recommend": "1",
             "overhead": "1",
+            "exclusive": "0",
+            "leisure": "0"
         },
         {
             "id": "3",
@@ -26,6 +30,8 @@ let data = {
             "communications": "260",
             "recommend": "0",
             "overhead": "0",
+            "exclusive": "0",
+            "leisure": "0"
         },
         {
             "id": "4",
@@ -35,6 +41,8 @@ let data = {
             "communications": "200",
             "recommend": "0",
             "overhead": "0",
+            "exclusive": "0",
+            "leisure": "0"
         },
     ]
 }

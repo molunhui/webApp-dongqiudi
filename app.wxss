@@ -18,7 +18,7 @@
     z-index: 999;
     border-bottom: 1px solid #eee;
 }
-/*
+
 .clearfix {
   zoom:1;
 }
@@ -29,4 +29,3 @@
     visibility:hidden;
     height:0;
 }
-*/

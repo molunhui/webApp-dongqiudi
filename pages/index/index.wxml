@@ -13,14 +13,26 @@
                 </text>
             </swiper-item>
         </block>
-        <ul class="navigation">
-            <bolck wx:for="{{slider}}">
-                <li wx:if="{{index == curIndex}}" class="cur"></li>
-                <li wx:else="{{index}}"></li>
-            </bolck>
-        </ul>
     </swiper>
+    <ul class="navigation">
+        <bolck wx:for="{{slider}}">
+            <li wx:if="{{index == curIndex}}" class="cur"></li>
+            <li wx:else="{{index}}"></li>
+        </bolck>
+    </ul>
     <navigator wx:for="{{articleList}}" class="list-container" url="../../article/article?id={{item.id}}">
-        <image mode="aspectFit" src="{{item.image}}" class="cover"></image>
+        <view class="clearfix list-wrap">
+            <image mode="aspectFill" src="{{item.image}}" class="list-image"></image>
+            <view class="txt-cont">
+                <text class="list-title">{{item.title}}</text>
+                <view class="list-footer">
+                    <text class="communication">{{item.communications}}评论</text>
+                    <text class="blue special" wx:if="{{item.exclusive == 1}}">独家</text>
+                    <text class="special recommend" wx:if="{{item.recommend == 1}}">推荐</text>
+                    <text class="blue special" wx:if="{{item.overhead == 1}}">顶置</text>
+                    <text class="blue special" wx:if="{{item.leisure == 1}}">闲情</text>
+                </view> 
+            </view>
+        </view>
     </navigator>
 </view>
