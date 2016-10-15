@@ -17,7 +17,7 @@
     left: 10rpx;
     bottom: 10rpx;
     color: #fff;
-    font-size: 30rpx;
+    font-size: 32rpx;
 }
 .slider-link {
     position: absolute;

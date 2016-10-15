@@ -20,7 +20,7 @@
             <li wx:else="{{index}}"></li>
         </bolck>
     </ul>
-    <navigator wx:for="{{articleList}}" class="list-container" url="../../article/article?id={{item.id}}">
+    <navigator wx:for="{{articleList}}" class="list-container" url="../article/article?id={{item.id}}">
         <view class="clearfix list-wrap">
             <image mode="aspectFill" src="{{item.image}}" class="list-image"></image>
             <view class="txt-cont">

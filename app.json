@@ -1,5 +1,12 @@
 {
-    "pages": ["pages/index/index", "pages/live/live"],
+    "pages": [
+        "pages/index/index", 
+        "pages/live/live",
+        "pages/article/article",
+        "pages/data/data",
+        "pages/favorites/favorites",
+        "pages/quanzi/quanzi"
+    ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#06b995",

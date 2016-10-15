@@ -5,7 +5,7 @@ let app = getApp()
 let slider = require('../../api/slider.js');
 
 let list = require('../../api/list');
-console.log(list);
+
 Page({
   data: {
     slider: slider.data.info,
