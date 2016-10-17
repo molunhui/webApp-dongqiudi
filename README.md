@@ -18,6 +18,12 @@
     <img src="./files/yanshi.gif" alt="截图预览" width="100%">
 </p>
 
+* 代码截图
+
+<p align="center">
+    <img src="./files/code.png" alt="">
+</p>
+
 ## 初尝感受 ##
 
 * 作为一名开发者，我更注重微信小程序对开发者体验。
