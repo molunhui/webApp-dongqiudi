@@ -2,14 +2,14 @@
     index.wxml
 -->
 <view class="container">
-    <swiper class="swiper" indicator-dots="{{ indicatorDots }}" autoplay="{{ autoplay }}" interval="{{ interval }}" duration="{{ duration }}" bindchange="navigatorChange">
+    <swiper class="swiper" indicator-dots="{{ swiper.indicatorDots }}" autoplay="{{ swiper.autoplay }}" interval="{{ swiper.interval }}" duration="{{ swiper.duration }}" bindchange="navigatorChange">
         <block wx:for="{{ slider }}">
             <swiper-item data-id="{{ item.id }}">
-                <navigator class="slider-link" url="../article/article?id={{ item.id }}">
+                <navigator class="slider-link" url="{{item.share}}">
                 </navigator>
-                <image src="{{ item.image }}" mode="aspectFill" class="slide-image"/>
+                <image src="{{ item.thumb }}" mode="aspectFill" class="slide-image"/>
                 <text class="img-txt">
-                    {{ item.text }}
+                    {{ item.shareTitle }}
                 </text>
             </swiper-item>
         </block>
@@ -20,19 +20,29 @@
             <li wx:else="{{index}}"></li>
         </bolck>
     </ul>
-    <navigator wx:for="{{articleList}}" class="list-container" url="../article/article?id={{item.id}}">
-        <view class="clearfix list-wrap">
-            <image mode="aspectFill" src="{{item.image}}" class="list-image"></image>
-            <view class="txt-cont">
-                <text class="list-title">{{item.title}}</text>
-                <view class="list-footer">
-                    <text class="communication">{{item.communications}}评论</text>
-                    <text class="blue special" wx:if="{{item.exclusive == 1}}">独家</text>
-                    <text class="special recommend" wx:if="{{item.recommend == 1}}">推荐</text>
-                    <text class="blue special" wx:if="{{item.overhead == 1}}">顶置</text>
-                    <text class="blue special" wx:if="{{item.leisure == 1}}">闲情</text>
-                </view> 
+<!--     <view class="recommend-live">
+        <navigator class="recommend-live--cont clearfix" wx:for="{{recommendLive}}" url="../../live/live?id={{item.match_id}}">
+            <view class="match-logo fl">
+                <image mode="aspectFill" src="{{item.program_logo}}"></image>
             </view>
-        </view>
+            <view class="match-info fl">
+                <h2></h2>
+            </view>
+        </navigator>
+    </view> -->
+    <scroll-view data-load-url="{{indexData.next}}" class="list-box" scroll-y="true" bindscrolltolower="scrolltolower">
+        <navigator wx:for="{{articleList}}" class="list-container" url="{{item.share}}">
+            <view class="clearfix list-wrap">
+                <image mode="aspectFill" src="{{item.thumb}}" class="list-image"></image>
+                <view class="txt-cont">
+                    <text class="list-title">{{item.title}}</text>
+                    <view class="list-footer">
+                        <text class="communication">{{item.comments_total}} 评论</text>
+                        <text class="special" wx:if="{{item.label}}" style="color:{{item.label_color}}; border: 1px solid {{item.label_color}};">{{item.label}}</text>
+                        <text class="special" wx:if="{{item.top}}" style="color:{{item.top_color}}; border: 1px solid {{item.top_color}};">顶置</text>
+                    </view> 
+                </view>
+            </view>
     </navigator>
+    </scroll-view>
 </view>

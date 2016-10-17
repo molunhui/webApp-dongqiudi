@@ -16,6 +16,15 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+
+function formatString(string) {
+  if(string.length > 21) {
+    return string.substring(0,21)
+  } else {
+    return string
+  }
+}
 module.exports = {
+  formatString: formatString,
   formatTime: formatTime
 }
