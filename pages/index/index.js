@@ -52,10 +52,12 @@ Page({
             header: {},
             success: function(res) {
                 articleList = articleList.concat(res.data.articles)
-                console.log(articleList)
-                for (let [index, elem] of res.data.recommend.entries()) {
-                  elem.shareTitle = util.formatString(elem.title) + '...'
+                if (res.data.recommend) {
+                  for (let [index, elem] of res.data.recommend.entries()) {
+                    elem.shareTitle = util.formatString(elem.title) + '...'
+                  }
                 }
+
                 that.setData({
                   indexData: res.data,
                   slider: res.data.recommend,
@@ -76,6 +78,12 @@ Page({
           })
         }
       })
+    },
+
+    linkTo: function(event) {
+      let url = event.currentTarget.dataset.url
+      console.log(url)
+      // window.open(url)
     },
 
     scrolltolower: function(event) {

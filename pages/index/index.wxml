@@ -1,7 +1,7 @@
 <!--
     index.wxml
 -->
-<view class="container">
+<scroll-view class="container" data-load-url="{{indexData.next}}" scroll-y="true" bindscrolltolower="scrolltolower">
     <swiper class="swiper" indicator-dots="{{ swiper.indicatorDots }}" autoplay="{{ swiper.autoplay }}" interval="{{ swiper.interval }}" duration="{{ swiper.duration }}" bindchange="navigatorChange">
         <block wx:for="{{ slider }}">
             <swiper-item data-id="{{ item.id }}">
@@ -30,19 +30,17 @@
             </view>
         </navigator>
     </view> -->
-    <scroll-view data-load-url="{{indexData.next}}" class="list-box" scroll-y="true" bindscrolltolower="scrolltolower">
-        <navigator wx:for="{{articleList}}" class="list-container" url="{{item.share}}">
-            <view class="clearfix list-wrap">
-                <image mode="aspectFill" src="{{item.thumb}}" class="list-image"></image>
-                <view class="txt-cont">
-                    <text class="list-title">{{item.title}}</text>
-                    <view class="list-footer">
-                        <text class="communication">{{item.comments_total}} 评论</text>
-                        <text class="special" wx:if="{{item.label}}" style="color:{{item.label_color}}; border: 1px solid {{item.label_color}};">{{item.label}}</text>
-                        <text class="special" wx:if="{{item.top}}" style="color:{{item.top_color}}; border: 1px solid {{item.top_color}};">顶置</text>
-                    </view> 
-                </view>
+    <navigator wx:for="{{articleList}}" class="list-container" url="../article/article?id={{item.id}}">
+        <view class="clearfix list-wrap">
+            <image mode="aspectFill" src="{{item.thumb}}" class="list-image"></image>
+            <view class="txt-cont">
+                <text class="list-title">{{item.title}}</text>
+                <view class="list-footer">
+                    <text class="communication">{{item.comments_total}} 评论</text>
+                    <text class="special" wx:if="{{item.label}}" style="color:{{item.label_color}}; border: 1px solid {{item.label_color}};">{{item.label}}</text>
+                    <text class="special" wx:if="{{item.top}}" style="color:{{item.top_color}}; border: 1px solid {{item.top_color}};">顶置</text>
+                </view> 
             </view>
+        </view>
     </navigator>
-    </scroll-view>
-</view>
+</scroll-view>

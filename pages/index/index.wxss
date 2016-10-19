@@ -89,10 +89,8 @@
 .list-footer .special {
     display: inline-block;
     margin-left: 10rpx;
-    width: 65rpx;
-    height: 32rpx;
+    padding: 8rpx;
     text-align: center;
-    line-height: 34rpx;
 }
 .recommend {
     color: #11cd6e;

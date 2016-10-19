@@ -1,5 +1,4 @@
-
-<!-- 文章内容 -->
+<!-- 
 <template name="article-content">
     <block wx:if="{{content.type == 'TEXT'}}">
         <view>
@@ -20,7 +19,6 @@
 
 <view class="container">
     <div class="main container-main">
-        <!-- 头部信息 -->
         <view class="header clearfix" wx:if="{{article.meta.type == 'MVP'}}">
             <view class="mvp fl">
                 <text>懂球帝{{article.meta.belong}}MVP</text>
@@ -29,7 +27,6 @@
                 <text>这一周，你最闪耀</text>
             </view>
         </view>
-        <!-- 文章信息 -->
         <view class="article-meta">
             <view class="article-title">
                 {{article.meta.title}}
@@ -40,65 +37,21 @@
                     {{article.meta.post_time}}</text>
             </view>
         </view>
-        <!-- 文章正文 -->
         <view wx:for="{{article.list}}" wx:for-item="content" class="content">
             <template is="article-content" data="{{content}}"></template>
         </view>
 
-        <!-- footer -->
         <view class="footer" style="margin-top: 30rpx">
             <text class="footer-text">懂球帝社区规范：严禁恶意挑衅</text>
             <text class="footer-text--des">信息参考来源：懂球帝</text>
         </view>
     </div>
 
-    <!-- 评论区 -->
     <view class="communications-box">
         <view class="good-communications">
             <text class="text">精彩评论</text>
         </view>
         <view class="main">
-            <!-- <block></block> -->
-            <view class="communication-item">
-                <view class="item-header clearfix">
-                    <view class="user-info fl">
-                        <view class="user-avatar">
-                            <image mode="aspectFit" src="../../images/temp/user/1.jpeg"></image>
-                        </view>
-                        <view class="user-name">
-                            <text class="user-nickName">子墨</text>
-                            <text class="post-time">10-15 16:01</text>
-                        </view>
-                    </view>
-                    <view class="approval fr">
-                        <text class="approval-num">52</text>
-                        <text class="approval-icon"></text>
-                    </view>
-                </view>
-                <view class="communication-cont">
-                    <text>这是一个评论来的，这真的是一个评论，评论尽量长而已</text>
-                </view>
-            </view>
-            <view class="communication-item">
-                <view class="item-header clearfix">
-                    <view class="user-info fl">
-                        <view class="user-avatar">
-                            <image mode="aspectFit" src="../../images/temp/user/1.jpeg"></image>
-                        </view>
-                        <view class="user-name">
-                            <text class="user-nickName">子墨</text>
-                            <text class="post-time">10-15 16:01</text>
-                        </view>
-                    </view>
-                    <view class="approval fr">
-                        <text class="approval-num">52</text>
-                        <text class="approval-icon"></text>
-                    </view>
-                </view>
-                <view class="communication-cont">
-                    <text>这是一个评论来的，这真的是一个评论，评论尽量长而已</text>
-                </view>
-            </view>
             <view class="communication-item">
                 <view class="item-header clearfix">
                     <view class="user-info fl">
@@ -121,7 +74,6 @@
             </view>
         </view>
     </view>
-    <!-- 预览模式 -->
     <swiper class="swiper-container" duration="400" current="{{previewIndex}}" bindtap="leavePreviewMode" style="display:{{previewMode ? 'block' : 'none'}};">
       <block wx:for="{{mediaList}}" wx:for-item="media">
         <swiper-item>
@@ -130,4 +82,5 @@
       </block>
     </swiper>
 
-</view>
+</view> -->
+<view class="container">{{html}}</view>

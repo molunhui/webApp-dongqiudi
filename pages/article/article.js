@@ -1,7 +1,7 @@
 
 
-var  articles = require('../../api/articles')
-console.log(articles)
+// var  articles = require('../../api/articles')
+// console.log(articles)
 
 Page({
     data: {
@@ -19,24 +19,43 @@ Page({
     onLoad: function(params) {
         console.log('onLoad')
         console.log('article')
+        console.log(params)
         this.getArticle(params)
-        this.getMediaList()
+        // this.getMediaList()
     },
 
     getArticle: function(params) {
         console.log(params)
-        let id = params.id , article = {}
-
-        if (id === undefined) {
-            article = articles.articles[0]
-        } else {
-            article = this.fillterArticle(id);
-            console.log(article)
-            // this.fillterArticle(id)
-        }
         this.setData({
-            article: article
+            html: res.data
         })
+        // let id = params.id , article = {}
+        // let that = this
+        // if (id === undefined) {
+        //     // article = articles.articles[0]
+        //     return false
+        // } else {
+        //     // article = this.fillterArticle(id);
+        //     // console.log(article)
+        //     // this.fillterArticle(id)
+        //     wx.request({
+        //         url: `https://api.dongqiudi.com/article/${id}.html?_font=m`,
+        //         header: {},
+        //         success: function(res) {
+        //             let reg = /<("[^"]*"|'[^']*'|[^'">])*>/
+        //             // let reg = /<div [^>]*class="con"[^>]*>(<div[^>]*>.*?</div>|.)*?</div>/
+        //             let match = reg.exec(res.data)
+        //             // let match = res.data.split(reg)
+        //             console.log(match)
+        //             that.setData({
+        //                 html: res.data
+        //             })
+        //         }
+        //     })
+        // }
+        // this.setData({
+        //     article: article
+        // })
     },
 
     // 过滤文章
