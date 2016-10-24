@@ -1,19 +1,113 @@
 
 .container {
 }
-.main {
-    width: 730rpx;
-    margin: 0 auto;
+/*行内元素*/
+.wxParse-span, .wxParse-strong, .wxParse-a {
+    display: inline;
+}
+.wxParse-strong {
+    font-size: 30rpx;
+    color: #ff0000;
+}
+.wxParse-div {
+    padding: 20rpx;
+}
+.wxParse-div .wxParse-div {
+    padding: 0;
+}
+.wxParse-div .wxParse-p {
+    font-size: 22rpx;
+    line-height: 1.5;
+    color: #ccc;
+}
+.wxParse-body {
+    width: 100%;
+    height: 100%;
+    /*padding: 20rpx;*/
+    box-sizing: border-box;
 }
 .header {
     width: 100%;
     height: 70rpx;
+    padding: 20rpx;
     border-bottom: 1px solid #06b995;
     color: #06b995;
     font-size: 48rpx;
     font-weight: 700;
 }
+.wxParse-header {
+    width: 100%;
+    padding: 20rpx;
+    box-sizing: border-box;
 
+}
+.wxParse-header .wxParse-div {
+    padding: 0;
+}
+.wxParse-header image {
+    width: 100%;
+    height: 70rpx;
+}
+.wxParse-header .wxParse-h1 {
+    font-size: 40rpx;
+    line-height: 1.4;
+    color: #000;
+}
+.wxParse-header .wxParse-h2 {
+    margin-top: 15rpx;
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #ccc;
+}
+.wxParse-header .wxParse-h2 view {
+    display: inline-block;
+}
+.wxParse-header .wxParse-h2 .wxParse-a {
+    color: #06b995;
+    margin-right: 30rpx;
+}
+.wxParse-article {
+    width: 100%;
+    padding: 20rpx;
+    box-sizing: border-box;
+
+}
+.wxParse-article, .wxParse-article .wxParse-p {
+    margin-top: 20rpx;
+    font-size: 28rpx;
+    color: #333;
+    padding: 0;
+    line-height: 1.5;
+}
+.wxParse-article .wxParse-img image {
+    width: 100%;
+    height: auto;
+}
+
+.wxParse-div .wxParse-a {
+    font-size: 24rpx;
+    color: #15ac39;
+}
+
+.wxParse-footer {
+    width: 100%;
+    margin-top: 40rpx;
+}
+.wxParse-footer .wxParse-div {
+    padding: 0;
+}
+.wxParse-h3 {
+    display: inline-block;
+    width: 100%;
+    height: 60rpx;
+    font-size: 24rpx;
+    line-height: 60rpx;
+    color: #06b995;
+    background-color: #e9e9e9;
+}
+.wxParse-h3 text {
+    padding-left: 20rpx;
+}
 .mvp {
     padding-top: 15rpx;
 }

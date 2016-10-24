@@ -83,4 +83,10 @@
     </swiper>
 
 </view> -->
-<view class="container">{{html}}</view>
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="container">
+    <block wx:for="{{html}}">
+        <template is="wxParse" data="{{item}}"/>
+    </block>
+
+</view>

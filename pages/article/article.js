@@ -2,6 +2,7 @@
 
 // var  articles = require('../../api/articles')
 // console.log(articles)
+var WxParse = require('../../wxParse/wxParse.js')
 
 Page({
     data: {
@@ -26,38 +27,42 @@ Page({
 
     getArticle: function(params) {
         console.log(params)
-        this.setData({
-            html: res.data
-        })
-        // let id = params.id , article = {}
-        // let that = this
-        // if (id === undefined) {
-        //     // article = articles.articles[0]
-        //     return false
-        // } else {
-        //     // article = this.fillterArticle(id);
-        //     // console.log(article)
-        //     // this.fillterArticle(id)
-        //     wx.request({
-        //         url: `https://api.dongqiudi.com/article/${id}.html?_font=m`,
-        //         header: {},
-        //         success: function(res) {
-        //             let reg = /<("[^"]*"|'[^']*'|[^'">])*>/
-        //             // let reg = /<div [^>]*class="con"[^>]*>(<div[^>]*>.*?</div>|.)*?</div>/
-        //             let match = reg.exec(res.data)
-        //             // let match = res.data.split(reg)
-        //             console.log(match)
-        //             that.setData({
-        //                 html: res.data
-        //             })
-        //         }
-        //     })
-        // }
         // this.setData({
-        //     article: article
+        //     html: res.data
         // })
-    },
+        let id = params.id , article = {}
+        let that = this
+        if (id === undefined) {
+            // article = articles.articles[0]
+            return false
+        } else {
+            // article = this.fillterArticle(id);
+            // console.log(article)
+            // this.fillterArticle(id)
+            wx.request({
+                url: `https://api.dongqiudi.com/article/${id}.html?_font=m`,
+                header: {},
+                success: function(res) {
+                    // 匹配类
+                    let reg = /<body[\s\S]*?>([\s\S]*?)<\/?body>/g
 
+                    let scriptReg = /<script[\s\S]*?>([\s\S]*?)<\/?script>/gm
+
+                    res.data = res.data.replace(scriptReg,'')
+
+                    let matchCon = reg.exec(res.data)
+                    
+                    that.setData({
+                        html: WxParse('html', matchCon[0])
+                    })
+                }
+            })
+        }
+        this.setData({
+            article: article
+        })
+    },
+    
     // 过滤文章
     fillterArticle(id) {
         var article = {}
