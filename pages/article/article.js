@@ -51,9 +51,21 @@ Page({
                     res.data = res.data.replace(scriptReg,'')
 
                     let matchCon = reg.exec(res.data)
-                    
+                    let WxParseCon = WxParse('html', matchCon[0])
+                    for (let [index, elem] of WxParseCon[0].child.entries()) {
+                        if (elem.tag == 'div') {
+                            // 社区规范，添加类名
+                            elem.class = 'extra'
+                            for(let [ix, v] of elem.child.entries()) {
+                                if (v.tag == 'div') {
+                                    v.class = `div-${ix}`
+                                }
+                            }
+                        }
+                    }
+                    console.log(WxParseCon[0])
                     that.setData({
-                        wxParseData: WxParse('html', matchCon[0])
+                        wxParseData: WxParseCon
                     })
                 }
             })
@@ -62,7 +74,7 @@ Page({
             article: article
         })
     },
-    
+
     // 过滤文章
     fillterArticle(id) {
         var article = {}

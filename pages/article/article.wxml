@@ -8,7 +8,7 @@
         </view>
     </block>
     <block wx:if="{{content.type == 'IMAGE'}}">
-        <image class="media" mode="aspectFill" src="{{content.content}}" bindtap="enterPreviewMode" data-src="{{content.content}}"></image>
+        <image class="media" mode="aspectFill" src="{{content.content}}" bindtap="enterdiPreviewMode" data-src="{{content.content}}"></image>
         <view wx:if="{{content.description}}" style="margin-top: 10rpx; color: #39b5de">(图)：{{content.description}}</view>
   </block>
   <block wx:if="{{content.type == 'VIDEO'}}">

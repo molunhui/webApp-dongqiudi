@@ -20,7 +20,6 @@
     <!--<template is="wxParse1" data="{{item}}" />-->
     <!--判断是否是标签节点-->
     <block wx:if="{{item.node == 'element'}}">
-        
         <block wx:if="{{item.tag == 'button'}}">
             <button type="default" size="mini" >
                 <block wx:for="{{item.child}}" wx:for-item="item">
@@ -30,12 +29,12 @@
         </block>
         <!--li类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse1" data="{{item}}"/>
                         </block>
@@ -45,7 +44,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
             <!--增加video标签支持，并循环添加-->
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -55,14 +54,14 @@
 
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse1" data="{{item}}"/>                 
                 </block>
@@ -96,12 +95,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse2" data="{{item}}"/>
                         </block>
@@ -111,7 +110,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -120,14 +119,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse2" data="{{item}}"/>                 
                 </block>
@@ -161,12 +160,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse3" data="{{item}}"/>
                         </block>
@@ -176,7 +175,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -185,14 +184,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>           
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse3" data="{{item}}"/>                 
                 </block>
@@ -226,12 +225,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse4" data="{{item}}"/>
                         </block>
@@ -241,7 +240,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -250,14 +249,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse4" data="{{item}}"/>                 
                 </block>
@@ -291,12 +290,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse5" data="{{item}}"/>
                         </block>
@@ -306,7 +305,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -315,14 +314,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse5" data="{{item}}"/>                 
                 </block>
@@ -356,12 +355,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse6" data="{{item}}"/>
                         </block>
@@ -371,7 +370,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -380,14 +379,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse6" data="{{item}}"/>                 
                 </block>
@@ -421,12 +420,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse7" data="{{item}}"/>
                         </block>
@@ -436,7 +435,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -445,14 +444,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>        
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view  class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse7" data="{{item}}"/>                 
                 </block>
@@ -487,12 +486,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse8" data="{{item}}"/>
                         </block>
@@ -502,7 +501,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -511,14 +510,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view  class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse8" data="{{item}}"/>                 
                 </block>
@@ -554,12 +553,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse9" data="{{item}}"/>
                         </block>
@@ -569,7 +568,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -578,14 +577,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view  class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse9" data="{{item}}"/>                 
                 </block>
@@ -621,12 +620,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse10" data="{{item}}"/>
                         </block>
@@ -636,7 +635,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -645,14 +644,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>           
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view  class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse10" data="{{item}}"/>                 
                 </block>
@@ -687,12 +686,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse11" data="{{item}}"/>
                         </block>
@@ -702,7 +701,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -711,14 +710,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view  class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse11" data="{{item}}"/>                 
                 </block>
@@ -753,12 +752,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse12" data="{{item}}"/>
                         </block>
@@ -768,7 +767,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -777,14 +776,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>           
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view  class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse12" data="{{item}}"/>                 
                 </block>
@@ -818,12 +817,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse13" data="{{item}}"/>
                         </block>
@@ -833,7 +832,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -842,14 +841,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view  class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse13" data="{{item}}"/>                 
                 </block>
@@ -884,12 +883,12 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'li'}}">
-            <view class="wxParse-li">
-                <view class="wxParse-li-inner">
-                    <view class="wxParse-li-text">
+            <view class=" {{item.class}} wxParse-li">
+                <view class=" {{item.class}} wxParse-li-inner">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <text class="wxParse-li-circle"></text>
                     </view>
-                    <view class="wxParse-li-text">
+                    <view class=" {{item.class}} wxParse-li-text">
                         <block wx:for="{{item.child}}" wx:for-item="item">
                             <template is="wxParse14" data="{{item}}"/>
                         </block>
@@ -899,7 +898,7 @@
         </block>
 
         <!--video类型-->
-        <block wx:elif="{{item.attr.class == 'video'}}">
+        <block wx:elif="{{item.attr['class'] == 'video'}}">
 
             <view  class="wxParse-{{item.tag}}">
                 <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
@@ -908,14 +907,14 @@
         </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}">
+            <view class=" {{item.class}} wxParse-{{item.tag}}">
                 <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
                 <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
         <block wx:else>
-            <view  class="wxParse-{{item.tag}}">
+            <view  class="wxParse-{{item.tag}} {{item.class}}">
                 <block  wx:for="{{item.child}}" wx:for-item="item">       
                     <template is="wxParse14" data="{{item}}"/>                 
                 </block>
