@@ -83,7 +83,9 @@
     width: 100%;
     height: auto;
 }
-
+.wxParse-article video {
+    width: 100%;
+}
 .wxParse-div .wxParse-a {
     font-size: 24rpx;
     color: #15ac39;

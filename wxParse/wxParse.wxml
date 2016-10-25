@@ -1,6 +1,22 @@
 
+<!--**
+ * author: Di (微信小程序开发工程师)
+ * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+ *               垂直微信小程序开发交流社区
+ * 
+ * github地址: https://github.com/icindy/wxParse
+ * 
+ * for: 微信小程序富文本解析
+ * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ */-->
 
 <template name="wxParse">
+    <block wx:for="{{wxParseData}}">
+        <template is="wxParse0" data="{{item}}"/>
+    </block>
+</template>
+
+<template name="wxParse0">
     <!--<template is="wxParse1" data="{{item}}" />-->
     <!--判断是否是标签节点-->
     <block wx:if="{{item.node == 'element'}}">
@@ -12,7 +28,7 @@
                 </block>
              </button>
         </block>
-        <!--img类型-->
+        <!--li类型-->
         <block wx:elif="{{item.tag == 'li'}}">
             <view class="wxParse-li">
                 <view class="wxParse-li-inner">
@@ -28,11 +44,20 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+            <!--增加video标签支持，并循环添加-->
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
+
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
@@ -85,11 +110,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
-            <view class="wxParse-{{item.tag}}"> 
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+            <view class="wxParse-{{item.tag}}">
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
@@ -142,11 +175,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>           
             </view>
         </block>
 
@@ -199,11 +240,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
@@ -256,11 +305,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
@@ -313,11 +370,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
@@ -370,11 +435,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>        
             </view>
         </block>
 
@@ -428,11 +501,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
@@ -487,11 +568,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
@@ -546,11 +635,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>           
             </view>
         </block>
 
@@ -604,11 +701,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
@@ -662,11 +767,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>           
             </view>
         </block>
 
@@ -719,11 +832,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 
@@ -777,11 +898,19 @@
             </view>
         </block>
 
+        <!--video类型-->
+        <block wx:elif="{{item.attr.class == 'video'}}">
+
+            <view  class="wxParse-{{item.tag}}">
+                <video class="wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+            </view>
+            
+        </block>
         <!--img类型-->
         <block wx:elif="{{item.tag == 'img'}}">
             <view class="wxParse-{{item.tag}}">
-                <image src="{{item.attr['data-src']}}" mode="aspectFit" wx:if="{{item.attr['data-src']}}"></image>
-                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['data-src']}}"></image>
+                <image src="{{item.attr['orig-src']}}" mode="aspectFit" wx:if="{{item.attr['orig-src']}}"></image>
+                <image src="{{item.attr['src']}}" mode="aspectFit" wx:if="{{!item.attr['orig-src']}}"></image>
             </view>
         </block>
 

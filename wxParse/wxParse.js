@@ -7,7 +7,7 @@ function wxParse(type,data){
   var wxParseData = [];
   if(type == 'json'){
     var json = HtmlToJson(html);
-	  // console.log(JSON.stringify(json, ' ', ' '));
+	  console.log(JSON.stringify(json, ' ', ' '));
     wxParseData = json.child;
   }else if(type == 'html'){
                               //你的字符串
@@ -16,7 +16,7 @@ function wxParse(type,data){
     
     // console.log(data)
     var json = HtmlToJson(data);
-	  // console.log(JSON.stringify(json, ' ', ' '));
+	  console.log(JSON.stringify(json, ' ', ' '));
     wxParseData = json.child;
   }else if(type == 'md' || type == 'markdown'){
     var converter = new showdown.Converter();
@@ -27,7 +27,7 @@ function wxParse(type,data){
     
     // console.log(data)
     var json = HtmlToJson(html);
-	  // console.log(JSON.stringify(json, ' ', ' '));
+	  console.log(JSON.stringify(json, ' ', ' '));
     wxParseData = json.child;
   }
 

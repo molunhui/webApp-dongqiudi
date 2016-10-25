@@ -85,8 +85,7 @@
 </view> -->
 <import src="../../wxParse/wxParse.wxml"/>
 <view class="container">
-    <block wx:for="{{html}}">
-        <template is="wxParse" data="{{item}}"/>
-    </block>
-
+    <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData}}"/>
+    </view>
 </view>

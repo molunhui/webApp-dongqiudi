@@ -53,7 +53,7 @@ Page({
                     let matchCon = reg.exec(res.data)
                     
                     that.setData({
-                        html: WxParse('html', matchCon[0])
+                        wxParseData: WxParse('html', matchCon[0])
                     })
                 }
             })
